@@ -92,3 +92,9 @@ body {
 .btns button:hover, .btn:hover {
     background: #f6f6f6;
 }
+
+#layout > footer {
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+}
