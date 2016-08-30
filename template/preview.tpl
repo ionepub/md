@@ -6,6 +6,12 @@
         <link rel="stylesheet" href="https://ionepub.github.io/md/examples/css/style.css" />
         <link rel="stylesheet" href="https://ionepub.github.io/md/css/editormd.preview.css" />
         <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+		<style>            
+            .editormd-html-preview {
+                width: 90%;
+                margin: 0 auto;
+            }
+        </style>
     </head>
     <body>
         <div id="layout">
