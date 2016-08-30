@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <title>API文档在线编辑器 - Editor.md</title>
-        <link rel="stylesheet" href="examples/css/style.css" />
-        <link rel="stylesheet" href="./css/editormd.css" />
+        <link rel="stylesheet" href="https://ionepub.github.io/md/examples/css/style.css" />
+        <link rel="stylesheet" href="https://ionepub.github.io/md/css/editormd.css" />
         <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
     </head>
     <body>
@@ -19,8 +19,9 @@
                 Based on <a href="https://pandao.github.io/editor.md/" target="_blank">Editor.md</a>
             </footer>
         </div>
-        <script src="examples/js/jquery.min.js"></script>
-        <script src="./editormd.min.js"></script>
+        <script src="https://ionepub.github.io/md/examples/js/jquery.min.js"></script>
+        <script type="text/javascript" src="./lib/base64.js"></script>
+        <script src="https://ionepub.github.io/md/editormd.min.js"></script>
         <script type="text/javascript">
 			var myEditor;
             var localData = localStorage.getItem('editordata') || "";
@@ -113,7 +114,12 @@
                         },
 
                         saveIcon : function(cm, icon, cursor, selection) {
-                            window.open('./preview.html');
+                            // window.open('./preview.html');
+                            var obj = this;
+                            var tpl = $.get('./template/preview.tpl', function(data){
+                                data = data.replace('##########', obj.getMarkdown());
+                                window.open('data:text/txt;base64,'+BASE64.encoder(data));
+                            })
                         }
                     },
 
@@ -133,24 +139,12 @@
                         }, 100)
                     }
                 });
-                
-                /*
-                // or
-                myEditor = editormd({
-                    id      : "container",
-                    width   : "90%",
-                    height  : 640,
-                    path    : "../lib/"
-                });
-                */
 
                 function localHandle(data){
-                    // console.log(data);
-                    console.log('trigger')
                     localData = data;
                     localStorage.setItem('editordata', localData);
                 }
-                
+
             });
         </script>
     </body>
