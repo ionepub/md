@@ -43,7 +43,7 @@
                         // Using "||" set icons align right.
                         // return ["undo", "redo", "|", "bold", "hr", "|", "preview", "watch", "|", "fullscreen", "info", "testIcon", "testIcon2", "file", "faicon", "||", "watch", "fullscreen", "preview", "testIcon", "file"]
 
-                        editormd.toolbarModes['full'].push("||", "saveIcon", "addApi", "addDatabase");
+                        editormd.toolbarModes['full'].push("||", "saveIcon", "addApi", "addDatabase", "addProcess");
                         // console.log(editormd.toolbarModes['full']);
                         return editormd.toolbarModes['full'];
                     },
@@ -56,7 +56,8 @@
 
                     toolbarIconTexts : {
                         addApi : "接口模板",  // 如果没有图标，则可以这样直接插入内容，可以是字符串或HTML标签
-                        addDatabase: "数据字典"
+                        addDatabase: "数据字典",
+                        addProcess: "进度表"
                     },
 
                     // 自定义工具栏按钮的事件处理
@@ -113,6 +114,29 @@
                             // }, 100)
                         },
 
+                        addProcess : function(cm, icon, cursor, selection) {
+                            
+                            //var cursor    = cm.getCursor();     //获取当前光标对象，同cursor参数
+                            //var selection = cm.getSelection();  //获取当前选中的文本，同selection参数
+                            
+                            // 替换选中文本，如果没有选中文本，则直接插入
+                            // cm.replaceSelection("[" + selection + ":testIcon]");
+
+                            $.get("./template/process.md", function(markdown){
+                                cm.replaceSelection(selection + '\n' + markdown);
+                            })
+                            
+                            // 如果当前没有选中的文本，将光标移到要输入的位置
+                            if(selection === "") {
+                                cm.setCursor(cursor.line, cursor.ch + 1);
+                            }
+
+                            // var obj = this;
+                            // setTimeout(function(){
+                            //     localHandle(obj.getMarkdown());
+                            // }, 100)
+                        },
+
                         saveIcon : function(cm, icon, cursor, selection) {
                             // window.open('./preview.html');
                             var obj = this;
@@ -127,7 +151,8 @@
                         toolbar : {
                             saveIcon : "保存为HTML",  // 自定义按钮的提示文本，即title属性
                             addApi   : "插入API接口模板",
-                            addDatabase: "插入数据字典模板"
+                            addDatabase: "插入数据字典模板",
+                            addProcess: "插入进度表模板"
                         }
                     },
 
