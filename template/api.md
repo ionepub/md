@@ -4,6 +4,11 @@
 
 - 用户注册接口
 
+**Author：**
+
+- 麻花藤
+
+
 **请求URL：** 
 - ` http://xx.com/api/user/register `
   
