@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <title>API文档在线编辑器 - Editor.md</title>
-        <link rel="stylesheet" href="https://ionepub.github.io/md/examples/css/style.css" />
-        <link rel="stylesheet" href="https://ionepub.github.io/md/css/editormd.css" />
-        <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="http://oetr6lb9r.bkt.clouddn.com/md/examples/css/style.css" />
+        <link rel="stylesheet" href="http://oetr6lb9r.bkt.clouddn.com/md/css/editormd.css" />
+        <link rel="shortcut icon" href="http://oetr6lb9r.bkt.clouddn.com/favicon.ico" type="image/x-icon" />
     </head>
     <body>
         <div id="layout">
@@ -19,9 +19,9 @@
                 Based on <a href="https://pandao.github.io/editor.md/" target="_blank">Editor.md</a>&nbsp;|&nbsp;<a href="https://github.com/ionepub/md/issues" target="_blank">Issues</a>
             </footer>
         </div>
-        <script src="https://ionepub.github.io/md/examples/js/jquery.min.js"></script>
-        <script type="text/javascript" src="https://ionepub.github.io/md/lib/base64.js"></script>
-        <script src="https://ionepub.github.io/md/editormd.min.js"></script>
+        <script src="http://oetr6lb9r.bkt.clouddn.com/md/examples/js/jquery.min.js"></script>
+        <script type="text/javascript" src="http://oetr6lb9r.bkt.clouddn.com/md/lib/base64.js"></script>
+        <script src="http://oetr6lb9r.bkt.clouddn.com/md/editormd.min.js"></script>
         <script type="text/javascript">
 			var myEditor;
             var localData = localStorage.getItem('editordata') || "";
@@ -32,7 +32,7 @@
                     markdown: localData,
                     height  : 640,
                     syncScrolling : "single",
-                    path    : "./lib/",
+                    path    : "http://oetr6lb9r.bkt.clouddn.com/md/lib/",
                     // markdownSourceCode : true,
                     taskList        : true,
 					emoji   : true,
@@ -76,7 +76,7 @@
                             // 替换选中文本，如果没有选中文本，则直接插入
                             // cm.replaceSelection("[" + selection + ":testIcon]");
 
-                            $.get("./template/api.md", function(markdown){
+                            $.get("http://oetr6lb9r.bkt.clouddn.com/md/template/api.md", function(markdown){
                                 cm.replaceSelection(selection + '\n' + markdown);
                             })
                             
@@ -99,7 +99,7 @@
                             // 替换选中文本，如果没有选中文本，则直接插入
                             // cm.replaceSelection("[" + selection + ":testIcon]");
 
-                            $.get("./template/db.md", function(markdown){
+                            $.get("http://oetr6lb9r.bkt.clouddn.com/md/template/db.md", function(markdown){
                                 cm.replaceSelection(selection + '\n' + markdown);
                             })
                             
@@ -122,7 +122,7 @@
                             // 替换选中文本，如果没有选中文本，则直接插入
                             // cm.replaceSelection("[" + selection + ":testIcon]");
 
-                            $.get("./template/process.md", function(markdown){
+                            $.get("http://oetr6lb9r.bkt.clouddn.com/md/template/process.md", function(markdown){
                                 cm.replaceSelection(selection + '\n' + markdown);
                             })
                             
@@ -140,7 +140,7 @@
                         saveIcon : function(cm, icon, cursor, selection) {
                             // window.open('./preview.html');
                             var obj = this;
-                            var tpl = $.get('./template/preview.tpl', function(data){
+                            var tpl = $.get('http://oetr6lb9r.bkt.clouddn.com/md/template/preview.tpl', function(data){
                                 data = data.replace('##########', obj.getMarkdown());
                                 window.open('data:text/txt;base64,'+BASE64.encoder(data));
                             })

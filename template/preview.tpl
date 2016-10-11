@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <title>HTML Preview</title>
-        <link rel="stylesheet" href="https://ionepub.github.io/md/examples/css/style.css" />
-        <link rel="stylesheet" href="https://ionepub.github.io/md/css/editormd.preview.css" />
+        <link rel="stylesheet" href="http://oetr6lb9r.bkt.clouddn.com/md/examples/css/style.css" />
+        <link rel="stylesheet" href="http://oetr6lb9r.bkt.clouddn.com/md/css/editormd.preview.css" />
         <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
 		<style>            
             .editormd-html-preview {
@@ -23,10 +23,10 @@
             </div>
         </div>
 
-        <script src="http://lib.sinaapp.com/js/jquery/1.10/jquery-1.10.0.min.js"></script>
-        <script src="https://ionepub.github.io/md/lib/marked.min.js"></script>
-        <script src="https://ionepub.github.io/md/lib/prettify.min.js"></script>
-        <script src="https://ionepub.github.io/md/editormd.js"></script>
+        <script src="http://oetr6lb9r.bkt.clouddn.com/md/examples/js/jquery.min.js"></script>
+        <script src="http://oetr6lb9r.bkt.clouddn.com/md/lib/marked.min.js"></script>
+        <script src="http://oetr6lb9r.bkt.clouddn.com/md/lib/prettify.min.js"></script>
+        <script src="http://oetr6lb9r.bkt.clouddn.com/md/editormd.js"></script>
         <script type="text/javascript">
             var editormdView;
             $(function() {
