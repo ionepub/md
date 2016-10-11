@@ -5,7 +5,7 @@
         <title>HTML Preview</title>
         <link rel="stylesheet" href="http://oetr6lb9r.bkt.clouddn.com/md/examples/css/style.css" />
         <link rel="stylesheet" href="http://oetr6lb9r.bkt.clouddn.com/md/css/editormd.preview.css" />
-        <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="http://oetr6lb9r.bkt.clouddn.com/favicon.ico" type="image/x-icon" />
 		<style>            
             .editormd-html-preview {
                 width: 90%;
