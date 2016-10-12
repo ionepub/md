@@ -140,7 +140,7 @@
                         saveIcon : function(cm, icon, cursor, selection) {
                             // window.open('./preview.html');
                             var obj = this;
-                            var tpl = $.get('./template/preview.tpl', function(data){
+                            var tpl = $.get('http://oetr6lb9r.bkt.clouddn.com/md/template/preview.tpl?v=2', function(data){
                                 data = data.replace('##########', obj.getMarkdown());
                                 window.open('data:text/txt;base64,'+BASE64.encoder(data));
                             })
