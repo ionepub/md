@@ -11,6 +11,7 @@
         <div id="layout">
             <header>
                 <h1>API文档在线编辑器</h1>
+                <p><a href="javascript:void(0)" class="opennew" target="_blank">打开新编辑器窗口（互不干扰）</a></p>
             </header>
             <div id="container">
                 <textarea style="display:none;"></textarea>
@@ -24,7 +25,22 @@
         <script src="http://oetr6lb9r.bkt.clouddn.com/md/editormd.min.js"></script>
         <script type="text/javascript">
 			var myEditor;
-            var localData = localStorage.getItem('editordata') || "";
+            var currentTab = location.hash ? parseInt(location.hash.replace('#', '')) : ''; //默认空，兼容旧版本
+            
+            // 保存最大的tab值，用于构造打开新窗口的Url
+            var maxTabIndex = 2;
+            if(currentTab != ''){
+                maxTabIndex = currentTab+1;
+            }
+
+            $(".opennew").attr("href", "#" + maxTabIndex).click(function(){
+                setTimeout(function(){
+                    maxTabIndex++;
+                    $(".opennew").attr("href", "#" + maxTabIndex);
+                }, 10);
+            })
+
+            var localData = localStorage.getItem('editordata' + currentTab) || "";
 
             $(function() {
                 myEditor = editormd("container", {
@@ -43,7 +59,7 @@
                         // Using "||" set icons align right.
                         // return ["undo", "redo", "|", "bold", "hr", "|", "preview", "watch", "|", "fullscreen", "info", "testIcon", "testIcon2", "file", "faicon", "||", "watch", "fullscreen", "preview", "testIcon", "file"]
 
-                        editormd.toolbarModes['full'].push("||", "saveIcon", "addApi", "addDatabase", "addProcess");
+                        editormd.toolbarModes['full'].push("||", "saveIcon", "addApi", "addDatabase");
                         // console.log(editormd.toolbarModes['full']);
                         return editormd.toolbarModes['full'];
                     },
@@ -57,7 +73,7 @@
                     toolbarIconTexts : {
                         addApi : "接口模板",  // 如果没有图标，则可以这样直接插入内容，可以是字符串或HTML标签
                         addDatabase: "数据字典",
-                        addProcess: "进度表"
+                        // addProcess: "进度表"
                     },
 
                     // 自定义工具栏按钮的事件处理
@@ -152,7 +168,7 @@
                             saveIcon : "保存为HTML",  // 自定义按钮的提示文本，即title属性
                             addApi   : "插入API接口模板",
                             addDatabase: "插入数据字典模板",
-                            addProcess: "插入进度表模板"
+                            // addProcess: "插入进度表模板"
                         }
                     },
 
@@ -167,7 +183,7 @@
 
                 function localHandle(data){
                     localData = data;
-                    localStorage.setItem('editordata', localData);
+                    localStorage.setItem('editordata' + currentTab, localData);
                 }
 
             });
