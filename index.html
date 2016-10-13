@@ -171,6 +171,17 @@
                 }
 
             });
+
+            // 捕捉键盘事件 
+            document.onkeydown = function(event){
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if(e && e.ctrlKey  == true && e.keyCode == 83){
+                    // ctrl+s 保存
+                    // console.log('ctrl+s');
+                    $(".editormd-toolbar-container i.fa-save[name='saveIcon']").trigger('click');
+                    return false;
+                }
+            }
         </script>
     </body>
 </html>
